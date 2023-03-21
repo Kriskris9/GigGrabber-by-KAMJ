@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+nav > h1 {
+  padding-left: 1rem;
+}
+.search-container {
+  padding-right: 1rem;
+  /* hello */
+}
