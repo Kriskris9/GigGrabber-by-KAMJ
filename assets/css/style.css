@@ -36,3 +36,26 @@ nav {
   border-radius: 16px;
   border: 1.5px solid black;
 }
+
+.results-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+.results-songkick {
+  width: 40%;
+}
+
+.results-spotify {
+  width: 40%;
+}
+
+.card {
+  border: 1px solid black;
+  margin-top: 1rem;
+}
+
+.card-spot {
+  border: 1px solid black;
+  margin-top: 1rem;
+}
