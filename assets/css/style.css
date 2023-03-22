@@ -1,4 +1,5 @@
 :root {
+  background-color: linear-gradient(90deg, var(--pnk) 0%, var(--purp) 100%);
   --blck: #191825;
   --purp: #865DFF;
   --prpnk: #E384FF;
