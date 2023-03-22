@@ -73,11 +73,12 @@ h1 {
   transition: transform 150ms;
 }
 
-.results-container {
+.results-container, .homepage {
   display: flex;
   justify-content: space-around;
   padding: 1.5rem;
 }
+
 .results-bandsintown {
   width: 40%;
   margin-top: 5rem;
