@@ -19,7 +19,6 @@ nav {
   align-items: center;
   border-bottom: 1.5px solid var(--blck);
   background: linear-gradient(90deg, var(--purp) 0%, var(--blck) 100%);
-  /* helloooopppp */
 }
 
 .nav-left {
@@ -47,6 +46,22 @@ nav {
   height: 1.5rem;
   border-radius: 16px;
   border: 1.5px solid var(--blck);
+  background-color: var(--purp);
+}
+
+::placeholder {
+  color: var(--blck);
+}
+
+.btn {
+  background-color: var(--purp);
+  color: var(--blck);
+}
+
+.btn:hover {
+  cursor: pointer;
+    box-shadow: 0 0.04rem 1.4rem 0 var(--prpnk);
+    transition: transform 150ms;
 }
 
 .results-container {
@@ -64,13 +79,13 @@ nav {
 }
 
 .card {
-  border: 1px solid black;
+  border: 1px solid var(--blck);
   margin-top: 1rem;
   height: 10vh;
 }
 
 .card-spot {
-  border: 1px solid black;
+  border: 1px solid var(--blck);
   margin-top: 1rem;
   height: 300px;
 }
