@@ -79,6 +79,39 @@ h1 {
   padding: 1.5rem;
 }
 
+.topartists {
+  width: 40%;
+  margin-top: 5rem;
+  position: relative;
+  left: 0vw;
+  z-index: 0;
+}
+
+.topsongs {
+  width: 35%;
+  margin-top: 5rem;
+  position: relative;
+  right: 5vw;
+}
+
+img {
+  width: 9vw;
+  height: 10vh;
+}
+
+ol {
+  width: auto;
+  text-align: left;
+}
+
+li {
+  border: 1px solid var(--blck);
+  margin-top: 1rem;
+  height: 10vh;
+  width: 25vw;
+
+}
+
 .results-bandsintown {
   width: 40%;
   margin-top: 5rem;
