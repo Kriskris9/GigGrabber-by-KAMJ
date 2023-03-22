@@ -28,8 +28,9 @@ function getConcerts(input) {
       city = [];
       state = [];
 
-      var concertInfo = {};
-      var index = 0;
+      var concertInfo = [];
+      bitResults.innerHTML = "";
+
       data.forEach(function (c) {
         var card = document.createElement("article");
         card.className = "card";
@@ -43,10 +44,14 @@ function getConcerts(input) {
         var city = c.venue.city;
         var state = c.venue.region;
 
-        concertInfo["venueStorage_" + index] = venue + "_" + index;
-        concertInfo["dateStorage_" + index] = date + "_" + index;
-        concertInfo["cityStorage_" + index] = city + "_" + index;
-        concertInfo["stateStorage_" + index] = state + "_" + index;
+        obj = {
+          venueStorage: venue,
+          dateStorage: date,
+          cityStorage: city,
+          stateStorage: state,
+        };
+
+        concertInfo.push(obj);
 
         infoVenue.innerHTML = venue;
         infoDate.innerHTML = date;
@@ -58,17 +63,34 @@ function getConcerts(input) {
         card.append(infoCity);
         card.append(infoState);
         bitResults.append(card);
-
-        index++;
       });
 
-      localStorage.setItem(`concertInfo`, JSON.stringify(concertInfo));
+      localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
     });
 }
 
 function getStorage() {
   var lastSearch = JSON.parse(localStorage.getItem("concertInfo"));
-  console.log(lastSearch);
+
+  lastSearch.forEach(function (s) {
+    var card = document.createElement("article");
+    card.className = "card";
+    var infoVenue = document.createElement("p");
+    var infoDate = document.createElement("p");
+    var infoCity = document.createElement("p");
+    var infoState = document.createElement("p");
+
+    infoVenue.innerHTML = s.venueStorage;
+    infoDate.innerHTML = s.dateStorage;
+    infoCity.innerHTML = s.cityStorage;
+    infoState.innerHTML = s.stateStorage;
+
+    card.append(infoVenue);
+    card.append(infoDate);
+    card.append(infoCity);
+    card.append(infoState);
+    bitResults.append(card);
+  });
 }
 
 function searchArtist(event) {
@@ -81,10 +103,8 @@ function searchArtist(event) {
   } else {
     console.log(input);
   }
-  //   getArtist(input);
   getConcerts(input);
 }
 
 button.addEventListener("click", searchArtist);
-
 getStorage();
