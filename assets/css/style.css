@@ -1,9 +1,9 @@
 :root {
   background-color: linear-gradient(90deg, var(--pnk) 0%, var(--purp) 100%);
   --blck: #191825;
-  --purp: #865DFF;
-  --prpnk: #E384FF;
-  --pnk: #FFA3FD;
+  --purp: #865dff;
+  --prpnk: #e384ff;
+  --pnk: #ffa3fd;
 }
 
 body {
@@ -40,7 +40,6 @@ nav {
   width: 2rem;
   border: 1.5px solid var(--blck);
   border-radius: 1.5rem;
-
 }
 
 h1 {
@@ -79,7 +78,7 @@ h1 {
   justify-content: space-around;
   padding: 1.5rem;
 }
-.results-songkick {
+.results-bandsintown {
   width: 40%;
   margin-top: 5rem;
   position: relative;
