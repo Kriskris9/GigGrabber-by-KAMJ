@@ -100,7 +100,7 @@ h2 {
 .card {
   border: 1px solid var(--blck);
   margin-top: 1rem;
-  height: 10vh;
+  height: 11rem;
 }
 
 .card-spot {
