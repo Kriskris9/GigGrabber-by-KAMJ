@@ -27,7 +27,23 @@ function getConcerts(input) {
       console.log(data);
       bitResults.innerHTML = "";
       head.innerHTML = "";
-      if (Object.keys(data).length === 0) {
+
+
+
+
+      if (data.errorMessage){
+        var noResults= document.createElement("h3");
+        noResults.innerHTML= "No Results Found " + actualInput;
+        head.append(noResults);
+        error = {
+          artistName: actualInput,
+          noResults: "error",
+        }
+        localStorage.setItem("concertInfo", JSON.stringify(error))   
+      
+    }
+
+     else if (Object.keys(data).length === 0) {
         console.log("yes");
         var empty = document.createElement("h3");
         empty.innerHTML = "No search results for " + actualInput;
@@ -83,8 +99,13 @@ function getConcerts(input) {
 
 function getStorage() {
   lastSearch = JSON.parse(localStorage.getItem("concertInfo"));
+  if (lastSearch.noResults){
+    var noResults= document.createElement("h3");
+        noResults.innerHTML= "No Results Found " + lastSearch.artistName;
+        head.append(noResults);
 
-  if (lastSearch.isEmpty) {
+  }
+  else if (lastSearch.isEmpty) {
     var empty = document.createElement("h3");
     empty.innerHTML = "No search results for " + lastSearch.artistName;
     head.append(empty);
