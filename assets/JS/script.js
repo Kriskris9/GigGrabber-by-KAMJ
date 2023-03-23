@@ -103,6 +103,12 @@ function getStorage() {
     lastSearch.forEach(function (s) {
       var card = document.createElement("div");
       card.className = "card";
+      card.addEventListener('mouseenter', function (e) {
+        card.classList.add('fa-beat');
+      });
+      card.addEventListener('mouseleave', function (e) {
+        card.classList.remove('fa-beat');
+      });
       var infoVenue = document.createElement("p");
       var infoDate = document.createElement("p");
       var infoCity = document.createElement("p");
