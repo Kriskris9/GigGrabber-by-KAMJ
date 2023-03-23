@@ -3,6 +3,7 @@ var button = document.querySelector("button");
 var bitResults = document.querySelector(".card-container");
 var topArtist = document.querySelector("#top-artist");
 var head = document.querySelector(".header-bandsintown");
+var aside = document.querySelector("aside");
 var id = "edc48f414ecacffb0e5d6e0406e465b6";
 var input;
 var actualInput;

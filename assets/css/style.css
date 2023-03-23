@@ -34,14 +34,15 @@ nav {
 
 aside {
   display: flex;
+  width: 15%;
   justify-content: center;
-  width: 50%;
 }
 
 .box {
   border: 1px solid black;
-  height: 5%;
-  width: 60%;
+  border-radius: 0.5rem;
+  height: 20rem;
+  width: 400px;
   margin-top: 12.5rem;
 }
 
@@ -128,7 +129,6 @@ h1 {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  max-width: 60rem;
 }
 
 img.profpic {
@@ -144,7 +144,6 @@ ul {
 li {
   border: 1px solid var(--blck);
   margin-top: 1rem;
-
   height: 10vh;
 }
 
@@ -153,8 +152,11 @@ h2 {
 }
 
 @media (max-width: 600px) {
+  .results-bandsintown {
+    width: 100%;
+  }
   .card {
-    width: 70%;
+    width: 80%;
     height: 10rem;
   }
   .songs {
@@ -164,7 +166,13 @@ h2 {
   .homepage {
     flex-wrap: wrap;
   }
+}
+
+@media (max-width: 800px) {
   aside {
     display: none;
+  }
+  .results-bandsintown {
+    width: 100%;
   }
 }
