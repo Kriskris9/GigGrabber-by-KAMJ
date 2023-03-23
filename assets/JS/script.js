@@ -4,6 +4,7 @@ var bitResults = document.querySelector(".card-container");
 var topArtist = document.querySelector("#top-artist");
 var head = document.querySelector(".header-bandsintown");
 var aside = document.querySelector("aside");
+var spot = document.querySelector(".box");
 var id = "edc48f414ecacffb0e5d6e0406e465b6";
 var input;
 var actualInput;
@@ -27,6 +28,11 @@ function getConcerts(input) {
       console.log(data);
       bitResults.innerHTML = "";
       head.innerHTML = "";
+
+      if (data.errorMessage) {
+        console.log("error");
+      }
+
       if (Object.keys(data).length === 0) {
         console.log("yes");
         var empty = document.createElement("h3");
