@@ -8,7 +8,6 @@
 
 body {
   margin: 0;
-  height: 100vh;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(90deg, var(--pnk) 0%, var(--purp) 100%);
@@ -19,11 +18,63 @@ nav {
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  top: 0;
   z-index: 2;
   width: 100%;
-  height: 10vh;
+  height: 5rem;
   border-bottom: 1.5px solid var(--blck);
   background: linear-gradient(90deg, var(--purp) 0%, var(--blck) 100%);
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+aside {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.box {
+  border: 1px solid black;
+  height: 5%;
+  width: 60%;
+  margin-top: 12.5rem;
+}
+
+.results-bandsintown {
+  margin-top: 7rem;
+  width: 80%;
+}
+
+.header-bandsintown {
+  margin-left: 50px;
+  margin-bottom: 3rem;
+}
+
+.card-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: space-around;
+}
+
+.card {
+  width: 40%;
+  height: 16rem;
+  margin-bottom: 4%;
+  position: relative;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+}
+.card > p {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
 }
 
 .nav-left {
@@ -73,72 +124,47 @@ h1 {
   transition: transform 150ms;
 }
 
-.results-container, .homepage {
+.homepage {
   display: flex;
   justify-content: space-around;
-  padding: 1.5rem;
-}
-
-.topartists {
-  width: 40%;
-  margin-top: 5rem;
-  position: relative;
-  left: 0vw;
-  z-index: 0;
-}
-
-.topsongs {
-  width: 35%;
-  margin-top: 5rem;
-  position: relative;
-  right: 5vw;
+  width: 100%;
+  max-width: 60rem;
 }
 
 img.profpic {
   height: 10vh;
 }
 
-ol {
-  width: auto;
-  text-align: left;
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
 }
 
 li {
   border: 1px solid var(--blck);
   margin-top: 1rem;
+
   height: 10vh;
-  width: 25vw;
-
-}
-
-.results-bandsintown {
-  width: 40%;
-  margin-top: 5rem;
-  position: relative;
-  left: -25vw;
-  z-index: 0;
 }
 
 h2 {
   font-size: 1.5rem;
 }
 
-.results-spotify {
-  width: 30%;
-  margin-top: 5rem;
-  position: fixed;
-  right: 10vw;
-  /* hello */
-}
+@media (max-width: 600px) {
+  .card {
+    width: 70%;
+    height: 10rem;
+  }
+  .songs {
+    margin-right: 20px;
+  }
 
-.card {
-  border: 1px solid var(--blck);
-  margin-top: 1rem;
-  height: 11rem;
-}
-
-.card-spot {
-  border: 1px solid var(--blck);
-  margin-top: 1rem;
-  height: 300px;
+  .homepage {
+    flex-wrap: wrap;
+  }
+  aside {
+    display: none;
+  }
 }
