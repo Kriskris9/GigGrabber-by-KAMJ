@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>GigGrabber</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
 
-  <body>
+<head>
+  <title>GigGrabber</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <i class="fa-solid fa-font">
     <nav>
       <div class="nav-left">
         <img class="icon" src="./assets/img/live-music.png" alt="" />
@@ -13,7 +15,7 @@
       </div>
       <div class="search-container">
         <form>
-          <input class="input" type="text" placeholder="Search..." />
+          <input class="input" type="text" placeholder="Search an artist..." />
           <button class="btn" type="submit">Search</button>
         </form>
       </div>
@@ -21,9 +23,15 @@
     <section class="page">
       <div class="results-bandsintown">
         <div class="header-bandsintown"></div>
-        <div class="card-container"></div>
+          <div class="card-container"></div>
       </div>
-      <aside class="spotify"><div class="box">Spotify</div></aside>
+      <aside class="spotify dropdown">
+        <div class="box dropbtn">Spotify
+          <div class="dropdown-content">
+            <a href="#">Spotify</a>
+          </div>
+        </div>
+      </aside>
     </section>
 
     <div class="homepage" id="home-page">
@@ -110,7 +118,7 @@
           </li>
           <li>
             <img class="profpic" src="./assets/img/stay.jpg" />
-            STAY (with Justin Bieber)
+            STAY (with JB)
           </li>
           <li>
             <img class="profpic" src="./assets/img/believer.jpg" />
@@ -119,7 +127,9 @@
         </ul>
       </div>
     </div>
+  </i>
+  <script src="./assets/JS/script.js"></script>
+  <script src="https://kit.fontawesome.com/3c42d1678b.js" crossorigin="anonymous"></script>
+</body>
 
-    <script src="./assets/JS/script.js"></script>
-  </body>
 </html>
