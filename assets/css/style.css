@@ -36,6 +36,8 @@ aside {
   display: flex;
   width: 15%;
   justify-content: center;
+  position: fixed;
+  right: 4vw;
 }
 
 .box {
@@ -140,6 +142,10 @@ h1 {
   width: 100%;
 }
 
+.topsongs {
+  margin-right: 15vw;
+}
+
 img.profpic {
   height: 10vh;
 }
@@ -151,11 +157,17 @@ ul {
 }
 
 li {
+  display: flex;
   border: 1px solid var(--blck);
   margin-top: 1rem;
   height: 10vh;
+  width: 20vw;
   background-color: var(--blck);
   color: var(--purp);
+  font-size: 1.3rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0.5rem;
 }
 
 h2 {
@@ -177,6 +189,7 @@ h2 {
   .homepage {
     flex-wrap: wrap;
   }
+
 }
 
 @media (max-width: 800px) {
@@ -185,6 +198,9 @@ h2 {
   }
   .results-bandsintown {
     width: 100%;
+  }
+  li {
+    width: 40vw;
   }
   .dropbtn {
     background-color: #4CAF50;
