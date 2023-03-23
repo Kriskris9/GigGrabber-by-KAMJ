@@ -8,27 +8,51 @@ var id = "edc48f414ecacffb0e5d6e0406e465b6";
 var input;
 var actualInput;
 
-// function getArtist(input) {
-//   fetch(`https://rest.bandsintown.com/artists/${input}/?app_id=${id}`)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data);
-//     });
-// }
+function getArtist(input) {
+  fetch(`https://rest.bandsintown.com/artists/${input}/?app_id=${id}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data);
+      var artistImg = data.image_url;
+      
+      console.log(artistImg);
+      var profilePic = document.createElement("img")
+      profilePic.src = artistImg;
+      head.append(profilePic);
+
+profilePic.style.borderRadius = '50%';
+profilePic.style.width = '50px';
+profilePic.style.objectFit = 'cover';
+
+    });
+}
 
 function getConcerts(input) {
+  getArtist(input);
   fetch(`https://rest.bandsintown.com/artists/${input}/events?app_id=${id}`)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       bitResults.innerHTML = "";
       head.innerHTML = "";
-      if (Object.keys(data).length === 0) {
-        console.log("yes");
+
+
+      if (data.errorMessage){
+        var noResults= document.createElement("h3");
+        noResults.innerHTML= "No Results Found " + actualInput;
+        head.append(noResults);
+        error = {
+          artistName: actualInput,
+          noResults: "error",
+        }
+        localStorage.setItem("concertInfo", JSON.stringify(error))   
+      
+    }
+
+     else if (Object.keys(data).length === 0) {
         var empty = document.createElement("h3");
         empty.innerHTML = "No search results for " + actualInput;
         head.append(empty);
@@ -37,7 +61,6 @@ function getConcerts(input) {
           isEmpty: "empty",
           artistName: actualInput,
         };
-        console.log(concertInfo);
         localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
       } else {
         var showing = document.createElement("h3");
@@ -56,6 +79,7 @@ function getConcerts(input) {
           var date = c.datetime;
           var city = c.venue.city;
           var state = c.venue.region;
+        
 
           obj = {
             artistName: actualInput,
@@ -83,8 +107,13 @@ function getConcerts(input) {
 
 function getStorage() {
   lastSearch = JSON.parse(localStorage.getItem("concertInfo"));
+  if (lastSearch.noResults){
+    var noResults= document.createElement("h3");
+        noResults.innerHTML= "No Results Found " + lastSearch.artistName;
+        head.append(noResults);
 
-  if (lastSearch.isEmpty) {
+  }
+  else if (lastSearch.isEmpty) {
     var empty = document.createElement("h3");
     empty.innerHTML = "No search results for " + lastSearch.artistName;
     head.append(empty);
