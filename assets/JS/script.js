@@ -21,6 +21,7 @@ function getArtist(input) {
       var profilePic = document.createElement("img")
       profilePic.src = artistImg;
       head.append(profilePic);
+    
 
 profilePic.style.borderRadius = '50%';
 profilePic.style.width = '50px';
