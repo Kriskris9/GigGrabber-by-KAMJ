@@ -4,6 +4,7 @@ var bitResults = document.querySelector(".card-container");
 var topArtist = document.querySelector("#top-artist");
 var head = document.querySelector(".header-bandsintown");
 var aside = document.querySelector("aside");
+var spot = document.querySelector(".box");
 var id = "edc48f414ecacffb0e5d6e0406e465b6";
 var input;
 var actualInput;
@@ -40,19 +41,6 @@ function getConcerts(input) {
       head.innerHTML = "";
 
 
-      if (data.errorMessage){
-        var noResults= document.createElement("h3");
-        noResults.innerHTML= "No Results Found " + actualInput;
-        head.append(noResults);
-        error = {
-          artistName: actualInput,
-          noResults: "error",
-        }
-        localStorage.setItem("concertInfo", JSON.stringify(error))   
-      
-    }
-
-     else if (Object.keys(data).length === 0) {
         var empty = document.createElement("h3");
         empty.innerHTML = "No search results for " + actualInput;
         head.append(empty);
