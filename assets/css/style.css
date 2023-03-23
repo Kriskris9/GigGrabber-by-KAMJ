@@ -123,6 +123,10 @@ h1 {
   padding-right: 1rem;
 }
 
+form {
+  display: flex;
+}
+
 .input {
   height: 1.5rem;
   border-radius: 16px;
@@ -202,6 +206,15 @@ h2 {
 
   .homepage {
     flex-wrap: wrap;
+  }
+
+  nav {
+    height: 15vh;
+    display: block;
+  }
+
+  form {
+    padding-left: 10vw;
   }
 }
 
