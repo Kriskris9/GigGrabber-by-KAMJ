@@ -23,6 +23,7 @@ function getArtist(input) {
       profilePic.style.width = "50px";
       profilePic.style.objectFit = "cover";
       head.append(profilePic);
+      return data.image_url;
     });
 }
 
@@ -34,7 +35,6 @@ function getConcerts(input) {
     .then(function (data) {
       bitResults.innerHTML = "";
       head.innerHTML = "";
-      getArtist(input);
 
       if (data.errorMessage) {
         var noResults = document.createElement("h2");
@@ -59,32 +59,36 @@ function getConcerts(input) {
         showing.innerHTML = "Showing concert results for " + actualInput;
         head.append(showing);
         var concertInfo = [];
-        data.forEach(function (c) {
-          var card = document.createElement("div");
-          card.className = "card";
-          var infoVenue = document.createElement("p");
-          var infoDate = document.createElement("p");
-          var infoCity = document.createElement("p");
-          var venue = c.venue.name;
-          var date = c.datetime;
-          var city = c.venue.city;
-          var state = c.venue.region;
-          obj = {
-            artistName: actualInput,
-            venueStorage: venue,
-            dateStorage: date,
-            cityStorage: `${city}, ${state}`,
-          };
-          concertInfo.push(obj);
-          infoVenue.innerHTML = venue;
-          infoDate.innerHTML = date;
-          infoCity.innerHTML = `${city}, ${state}`;
-          card.append(infoVenue);
-          card.append(infoDate);
-          card.append(infoCity);
-          bitResults.append(card);
+
+        getArtist(input).then(function (img) {
+          data.forEach(function (c) {
+            var card = document.createElement("div");
+            card.className = "card";
+            var infoVenue = document.createElement("p");
+            var infoDate = document.createElement("p");
+            var infoCity = document.createElement("p");
+            var venue = c.venue.name;
+            var date = c.datetime;
+            var city = c.venue.city;
+            var state = c.venue.region;
+            obj = {
+              artistName: actualInput,
+              venueStorage: venue,
+              dateStorage: date,
+              cityStorage: `${city}, ${state}`,
+              imageStorage: img,
+            };
+            concertInfo.push(obj);
+            infoVenue.innerHTML = venue;
+            infoDate.innerHTML = date;
+            infoCity.innerHTML = `${city}, ${state}`;
+            card.append(infoVenue);
+            card.append(infoDate);
+            card.append(infoCity);
+            bitResults.append(card);
+          });
+          localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
         });
-        localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
       }
     });
 }
@@ -105,6 +109,14 @@ function getStorage() {
       "Showing concert results for " + lastSearch[0].artistName;
     head.append(showing);
 
+    var infoPic = document.createElement("img");
+    infoPic.src = lastSearch[0].imageStorage;
+    infoPic.style.borderRadius = "50%";
+    infoPic.style.border = "1px solid black";
+    infoPic.style.width = "50px";
+    infoPic.style.objectFit = "cover";
+    head.append(infoPic);
+
     lastSearch.forEach(function (s) {
       var card = document.createElement("div");
       card.className = "card";
@@ -114,13 +126,14 @@ function getStorage() {
       card.addEventListener("mouseleave", function (e) {
         card.classList.remove("fa-beat");
       });
+
       var infoVenue = document.createElement("p");
       var infoDate = document.createElement("p");
       var infoCity = document.createElement("p");
 
+      infoCity.innerHTML = s.cityStorage;
       infoVenue.innerHTML = s.venueStorage;
       infoDate.innerHTML = s.dateStorage;
-      infoCity.innerHTML = s.cityStorage;
 
       card.append(infoVenue);
       card.append(infoDate);
