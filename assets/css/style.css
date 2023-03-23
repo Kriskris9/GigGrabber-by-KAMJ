@@ -54,6 +54,11 @@ aside {
 .header-bandsintown {
   margin-left: 50px;
   margin-bottom: 3rem;
+  display: flex;
+  align-items:center;
+}
+.header-bandsintown > img {
+  margin-left: 1rem;
 }
 
 .card-container {

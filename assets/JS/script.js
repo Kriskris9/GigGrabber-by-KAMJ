@@ -8,27 +8,36 @@ var id = "edc48f414ecacffb0e5d6e0406e465b6";
 var input;
 var actualInput;
 
-// function getArtist(input) {
-//   fetch(`https://rest.bandsintown.com/artists/${input}/?app_id=${id}`)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data);
-//     });
-// }
+function getArtist(input) {
+  fetch(`https://rest.bandsintown.com/artists/${input}/?app_id=${id}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data);
+      var artistImg = data.image_url;
+      
+      console.log(artistImg);
+      var profilePic = document.createElement("img")
+      profilePic.src = artistImg;
+      head.append(profilePic);
+
+profilePic.style.borderRadius = '50%';
+profilePic.style.width = '50px';
+profilePic.style.objectFit = 'cover';
+
+    });
+}
 
 function getConcerts(input) {
+  getArtist(input);
   fetch(`https://rest.bandsintown.com/artists/${input}/events?app_id=${id}`)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       bitResults.innerHTML = "";
       head.innerHTML = "";
-
-
 
 
       if (data.errorMessage){
@@ -44,7 +53,6 @@ function getConcerts(input) {
     }
 
      else if (Object.keys(data).length === 0) {
-        console.log("yes");
         var empty = document.createElement("h3");
         empty.innerHTML = "No search results for " + actualInput;
         head.append(empty);
@@ -53,7 +61,6 @@ function getConcerts(input) {
           isEmpty: "empty",
           artistName: actualInput,
         };
-        console.log(concertInfo);
         localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
       } else {
         var showing = document.createElement("h3");
@@ -72,6 +79,7 @@ function getConcerts(input) {
           var date = c.datetime;
           var city = c.venue.city;
           var state = c.venue.region;
+        
 
           obj = {
             artistName: actualInput,
