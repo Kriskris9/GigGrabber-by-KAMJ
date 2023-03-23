@@ -154,6 +154,8 @@ li {
   border: 1px solid var(--blck);
   margin-top: 1rem;
   height: 10vh;
+  background-color: var(--blck);
+  color: var(--purp);
 }
 
 h2 {
