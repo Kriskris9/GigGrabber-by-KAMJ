@@ -5,9 +5,59 @@ var topArtist = document.querySelector("#top-artist");
 var head = document.querySelector(".header-bandsintown");
 var aside = document.querySelector("aside");
 var spot = document.querySelector(".box");
-var id = "edc48f414ecacffb0e5d6e0406e465b6";
+var id = window.env.BIT_KEY;
 var input;
 var actualInput;
+
+function noResults(name) {
+  var noResults = document.createElement("h2");
+  noResults.innerHTML = "No Results Found " + name;
+  head.append(noResults);
+}
+
+function noConcerts(artistImg, artistName) {
+  var empty = document.createElement("h2");
+  empty.innerHTML = "No upcoming concerts for " + artistName;
+  head.append(empty);
+
+  var profilePic = document.createElement("img");
+  profilePic.src = artistImg;
+  profilePic.style.borderRadius = "50%";
+  profilePic.style.border = "1px solid black";
+  profilePic.style.width = "50px";
+  profilePic.style.objectFit = "cover";
+  head.append(profilePic);
+}
+
+function successConcerts(venue, date, location) {
+  var card = document.createElement("div");
+  card.className = "card";
+  var infoVenue = document.createElement("p");
+  var infoDate = document.createElement("p");
+  var infoCity = document.createElement("p");
+
+  infoVenue.innerHTML = venue;
+  infoDate.innerHTML = date;
+  infoCity.innerHTML = location;
+
+  card.append(infoVenue);
+  card.append(infoDate);
+  card.append(infoCity);
+  bitResults.append(card);
+}
+
+function successConcertsImg(artistName, artistImg) {
+  var showing = document.createElement("h2");
+  showing.innerHTML = "Showing concert results for " + artistName;
+  head.append(showing);
+  var profilePic = document.createElement("img");
+  profilePic.src = artistImg;
+  profilePic.style.borderRadius = "50%";
+  profilePic.style.border = "1px solid black";
+  profilePic.style.width = "50px";
+  profilePic.style.objectFit = "cover";
+  head.append(profilePic);
+}
 
 function getArtist(input) {
   return fetch(`https://rest.bandsintown.com/artists/${input}/?app_id=${id}`)
@@ -15,79 +65,67 @@ function getArtist(input) {
       return response.json();
     })
     .then(function (data) {
-      var artistImg = data.image_url;
-      profilePic = document.createElement("img");
-      profilePic.src = artistImg;
-      profilePic.style.borderRadius = "50%";
-      profilePic.style.border = "1px solid black";
-      profilePic.style.width = "50px";
-      profilePic.style.objectFit = "cover";
-      head.append(profilePic);
-      return data.image_url;
+      return [data.image_url, data.name];
     });
 }
 
 function getConcerts(input) {
+  bitResults.innerHTML = "";
+  head.innerHTML = "";
   fetch(`https://rest.bandsintown.com/artists/${input}/events?app_id=${id}`)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      bitResults.innerHTML = "";
-      head.innerHTML = "";
-
       if (data.errorMessage) {
-        var noResults = document.createElement("h2");
-        noResults.innerHTML = "No Results Found " + actualInput;
-        head.append(noResults);
+        noResults(actualInput);
         error = {
           artistName: actualInput,
           noResults: "error",
         };
         localStorage.setItem("concertInfo", JSON.stringify(error));
-      } else if (Object.keys(data).length === 0) {
-        var empty = document.createElement("h2");
-        empty.innerHTML = "No search results for " + actualInput;
-        head.append(empty);
-        concertInfo = {
-          isEmpty: "empty",
-          artistName: actualInput,
-        };
-        localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
       } else {
-        var showing = document.createElement("h2");
-        showing.innerHTML = "Showing concert results for " + actualInput;
-        head.append(showing);
-        var concertInfo = [];
+        getArtist(input).then(function (artistData) {
+          var artistImg = artistData[0];
+          var artistName = artistData[1];
 
-        getArtist(input).then(function (img) {
-          data.forEach(function (c) {
-            var card = document.createElement("div");
-            card.className = "card";
-            var infoVenue = document.createElement("p");
-            var infoDate = document.createElement("p");
-            var infoCity = document.createElement("p");
-            var venue = c.venue.name;
-            var date = c.datetime;
-            var city = c.venue.city;
-            var state = c.venue.region;
-            obj = {
-              artistName: actualInput,
-              venueStorage: venue,
-              dateStorage: date,
-              cityStorage: `${city}, ${state}`,
-              imageStorage: img,
+          if (Object.keys(data).length === 0) {
+            noConcerts(artistImg, artistName);
+            concertInfo = {
+              isEmpty: "empty",
+              artistName: artistName,
+              imageStorage: artistImg,
             };
-            concertInfo.push(obj);
-            infoVenue.innerHTML = venue;
-            infoDate.innerHTML = date;
-            infoCity.innerHTML = `${city}, ${state}`;
-            card.append(infoVenue);
-            card.append(infoDate);
-            card.append(infoCity);
-            bitResults.append(card);
-          });
-          localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
+            localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
+          } else {
+            var concertInfo = [];
+            data.forEach(function (c) {
+              var venue = c.venue.name;
+              var date = c.datetime;
+              var location = `${c.venue.city}, ${c.venue.region}`;
+
+              obj = {
+                artistName: artistName,
+                venueStorage: venue,
+                dateStorage: date,
+                cityStorage: location,
+                imageStorage: artistImg,
+              };
+              concertInfo.push(obj);
+              successConcerts(venue, date, location);
+            });
+            localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
+            var showing = document.createElement("h2");
+            showing.innerHTML = "Showing concert results for " + artistData[1];
+            head.append(showing);
+            profilePic = document.createElement("img");
+            profilePic.src = artistData[0];
+            profilePic.style.borderRadius = "50%";
+            profilePic.style.border = "1px solid black";
+            profilePic.style.width = "50px";
+            profilePic.style.objectFit = "cover";
+            head.append(profilePic);
+          }
         });
       }
     });
@@ -95,51 +133,16 @@ function getConcerts(input) {
 
 function getStorage() {
   lastSearch = JSON.parse(localStorage.getItem("concertInfo"));
+
   if (lastSearch.noResults) {
-    var noResults = document.createElement("h2");
-    noResults.innerHTML = "No Results Found " + lastSearch.artistName;
-    head.append(noResults);
+    noResults(lastSearch.artistName);
   } else if (lastSearch.isEmpty) {
-    var empty = document.createElement("h2");
-    empty.innerHTML = "No search results for " + lastSearch.artistName;
-    head.append(empty);
+    noConcerts(lastSearch.imageStorage, lastSearch.artistName);
   } else {
-    var showing = document.createElement("h2");
-    showing.innerHTML =
-      "Showing concert results for " + lastSearch[0].artistName;
-    head.append(showing);
-
-    var infoPic = document.createElement("img");
-    infoPic.src = lastSearch[0].imageStorage;
-    infoPic.style.borderRadius = "50%";
-    infoPic.style.border = "1px solid black";
-    infoPic.style.width = "50px";
-    infoPic.style.objectFit = "cover";
-    head.append(infoPic);
-
     lastSearch.forEach(function (s) {
-      var card = document.createElement("div");
-      card.className = "card";
-      card.addEventListener("mouseenter", function (e) {
-        card.classList.add("fa-beat");
-      });
-      card.addEventListener("mouseleave", function (e) {
-        card.classList.remove("fa-beat");
-      });
-
-      var infoVenue = document.createElement("p");
-      var infoDate = document.createElement("p");
-      var infoCity = document.createElement("p");
-
-      infoCity.innerHTML = s.cityStorage;
-      infoVenue.innerHTML = s.venueStorage;
-      infoDate.innerHTML = s.dateStorage;
-
-      card.append(infoVenue);
-      card.append(infoDate);
-      card.append(infoCity);
-      bitResults.append(card);
+      successConcerts(s.venueStorage, s.dateStorage, s.cityStorage);
     });
+    successConcertsImg(lastSearch[0].artistName, lastSearch[0].imageStorage);
   }
 }
 
@@ -152,6 +155,6 @@ function searchArtist(event) {
   }
   getConcerts(input, actualInput);
 }
+getStorage();
 
 button.addEventListener("click", searchArtist);
-getStorage();
