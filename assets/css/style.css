@@ -185,6 +185,9 @@ li {
   justify-content: space-between;
   padding-right: 0.5rem;
 }
+.top-artist-name {
+  cursor: pointer;
+}
 
 h2 {
   font-size: 1.5rem;
@@ -228,6 +231,7 @@ h2 {
     font-size: 1rem;
     text-align: right;
   }
+
   .card {
     font-size: 1rem;
   }

@@ -1,16 +1,21 @@
 var button = document.querySelector("button");
+var box = document.querySelector(".spotify-box");
+var search = document.querySelector(".input");
 
 function getToken() {
   var client_id = window.env.SPOTIFY_CLIENT;
   var client_secret = window.env.SPOTIFY_SECRET;
-  return fetch("https://accounts.spotify.com/api/token", {
-    method: "POST",
-    headers: {
-      Authorization: "Basic " + btoa(client_id + ":" + client_secret),
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: "grant_type=client_credentials",
-  })
+  return fetch(
+    "https://cors-anywhere.herokuapp.com/https://accounts.spotify.com/api/token",
+    {
+      method: "POST",
+      headers: {
+        Authorization: "Basic " + btoa(client_id + ":" + client_secret),
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: "grant_type=client_credentials",
+    }
+  )
     .then(function (response) {
       return response.json();
     })
@@ -19,9 +24,10 @@ function getToken() {
     });
 }
 
-function searchArtist() {
+function topTracks(input) {
+  box.innerHTML = "";
   getToken().then(function (data) {
-    return fetch("https://api.spotify.com/v1/search?q=sza&type=artist", {
+    return fetch(`https://api.spotify.com/v1/search?q=${input}&type=artist`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + data.access_token,
@@ -46,12 +52,55 @@ function searchArtist() {
             return response.json();
           })
           .then(function (resp) {
-            resp.tracks.forEach(function (tr) {
-              console.log(tr.name, tr.external_urls.spotify);
-            });
+            var songStorage = [];
+
+            for (let i = 0; i < 6; i++) {
+              var spotifySong = resp.tracks[i].name;
+              var spotifyLink = resp.tracks[i].external_urls.spotify;
+
+              obj = {
+                song: spotifySong,
+                link: spotifyLink,
+              };
+              songStorage.push(obj);
+              storage(spotifySong, spotifyLink);
+            }
+            localStorage.setItem("songInfo", JSON.stringify(songStorage));
           });
       });
   });
 }
 
-button.addEventListener("click", searchArtist());
+function storage(song, link) {
+  var songName = document.createElement("a");
+  songName.setAttribute("href", link);
+  songName.innerHTML = song;
+  songName.style.display = "block";
+  box.append(songName);
+}
+
+function getStorage() {
+  lastSearch = JSON.parse(localStorage.getItem("songInfo"));
+  console.log(lastSearch);
+
+  lastSearch.forEach(function (s) {
+    var songName = document.createElement("a");
+    storage(s.song, s.link);
+  });
+}
+
+function searchArtist(event) {
+  event.preventDefault();
+
+  topTracks(search.value);
+}
+
+button.addEventListener("click", searchArtist);
+
+art.forEach(function (e) {
+  e.addEventListener("click", function () {
+    topTracks(e.textContent);
+  });
+});
+
+getStorage();
