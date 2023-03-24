@@ -202,6 +202,12 @@ margin-top: 2rem;
 text-align: center;
 }
 
+.footer-logo {
+  display: block;
+  align-items: center;
+  padding-top: 1rem;
+}
+
 h3 {
 font-size: 1.3rem;
 }
