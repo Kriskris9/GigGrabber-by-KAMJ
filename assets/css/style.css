@@ -32,7 +32,7 @@ nav {
   flex-direction: row;
 }
 
-aside {
+.spotify {
   display: flex;
   width: 15%;
   justify-content: center;
@@ -283,11 +283,26 @@ font-size: 1.5rem;
 }
 
 @media (max-width: 800px) {
-  aside {
-    display: none;
+  nav {
+    height: 15vh;
   }
+  .spotify {
+    position: absolute;
+    width: 100%;
+  }
+
+  .box {
+    margin-top: 20vh;
+  }
+
+  .box > h2 {
+    padding: 1rem;
+    margin-top: 0;
+  }
+
   .results-bandsintown {
     width: 100%;
+    margin-top: 60vh;
   }
   .toplist {
     width: 31vw;
