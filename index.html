@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>GigGrabber</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
 
+feature/spotify_lastday
   <body>
     <nav>
       <div class="nav-left">
@@ -78,59 +75,163 @@
           </li>
         </ul>
       </div>
+<head>
+  <title>GigGrabber</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
 
-      <div class="topsongs">
-        <h2>Top 10 Streaming Songs</h2>
-        <ul class="song-name">
-          <li>
-            <img class="profpic" src="./assets/img/blind.jpg" />
-            Blinding Lights
-          </li>
-          <li>
-            <img class="profpic" src="./assets/img/shape.jpg" />
-            Shape of You
-          </li>
-          <li>
-            <img class="profpic" src="./assets/img/monkey.jpg" />
-            Dance Monkey
-          </li>
-          <li>
-            <img class="profpic" src="./assets/img/someone.jpg" />
-            Someone You Loved
-          </li>
-          <li>
-            <img class="profpic" src="./assets/img/rockstar.jpg" />
-            Rockstar
-          </li>
-          <li>
-            <img class="profpic" src="./assets/img/sunflower.jpg" />
-            Sunflower
-          </li>
-          <li>
-            <img class="profpic" src="./assets/img/onedance.jpg" />
-            One Dance
-          </li>
-          <li>
-            <img class="profpic" src="./assets/img/closer.jpg" />
-            Closer
-          </li>
-          <li>
-            <img class="profpic" src="./assets/img/stay.jpg" />
-            STAY (with JB)
-          </li>
-          <li>
-            <img class="profpic" src="./assets/img/believer.jpg" />
-            Believer
-          </li>
-        </ul>
-      </div>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img class="icon" src="./assets/img/live-music.png" alt="" />
+      <h1 href="#">GigGrabber</h1>
     </div>
-    <script src="./assets/JS/env.js"></script>
-    <script src="./assets/JS/script.js"></script>
-    <script src="./assets/JS/spotify.js"></script>
-    <script
-      src="https://kit.fontawesome.com/3c42d1678b.js"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+    <!-- <ul class="navbar">
+      <li class="navitem">
+        <a href="#home-page">Home</a>
+      </li>
+      <li class="navitem">
+        <a href="#about">About</a>
+      </li>
+      <li class="navitem">
+        <a href="#results">Results</a>
+      </li>
+    </ul> -->
+
+    <div class="search-container">
+      <form>
+        <input class="input" type="text" placeholder="Search an artist..." />
+        <button class="btn" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <section class="page" id="results">
+    <div class="results-bandsintown">
+      <div class="header-bandsintown"></div>
+      <div class="card-container"></div>
+    </div>
+    <aside class="spotify dropdown">
+      <div class="box dropbtn">
+        Spotify
+        <div class="dropdown-content">
+          <a href="#">Spotify</a>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <div class="homepage" id="home-page">
+    <div class="topartists">
+      <h2>Top 10 Streaming Artists</h2>
+      <ul class="art-name">
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/drake.jpg" />
+          Drake
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/badbun.jpg" />
+          Bad Bunny
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/tayswf.jpg" />
+          Taylor Swift
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/edshee.jpg" />
+          Ed Sheeran
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/weeknd.jpg" />
+          The Weeknd
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/jb.jpg" />
+          Justin Bieber
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/arigran.jpg" />
+          Ariana Grande
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/mm.jpg" />
+          Eminem
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/bts.jpg" />
+          BTS
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/posty.jpg" />
+          Post Malone
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="topsongs">
+      <h2>Top 10 Streaming Songs</h2>
+      <ul class="song-name">
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/blind.jpg" />
+          Blinding Lights
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/shape.jpg" />
+          Shape of You
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/monkey.jpg" />
+          Dance Monkey
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/someone.jpg" />
+          Someone You Loved
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/rockstar.jpg" />
+          Rockstar
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/sunflower.jpg" />
+          Sunflower
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/onedance.jpg" />
+          One Dance
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/closer.jpg" />
+          Closer
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/stay.jpg" />
+          STAY (with JB)
+        </li>
+        <li class="toplist">
+          <img class="profpic" src="./assets/img/believer.jpg" />
+          Believer
+        </li>
+      </ul>
+    </div>
+  </div>
+  <footer id="about">
+    <div class="footer-logo">
+      <img class="icon" src="./assets/img/live-music.png" alt="" />
+      <h3>About Us</h3>
+    </div>
+    <p class="foot">
+      Connecting artists with their most passionate fans. We're a dynamic live music discovery platform looking to forge
+      a strong musical community!
+    </p>
+    <span>&copy; KAMJ Website Productions</span>
+  </footer>
+  <script src="./assets/JS/env.js"></script>
+  <script src="./assets/JS/script.js"></script>
+  <!-- <script src="./assets/JS/spotify.js"></script> -->
+  <script src="https://kit.fontawesome.com/3c42d1678b.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
+
