@@ -136,16 +136,18 @@ function getConcerts(input) {
 
 function getStorage() {
   lastSearch = JSON.parse(localStorage.getItem("concertInfo"));
-
-  if (lastSearch.noResults) {
-    noResults(lastSearch.artistName);
-  } else if (lastSearch.isEmpty) {
-    noConcerts(lastSearch.imageStorage, lastSearch.artistName);
+  if (lastSearch === null) {
   } else {
-    lastSearch.forEach(function (s) {
-      successConcerts(s.venueStorage, s.dateStorage, s.cityStorage);
-    });
-    successConcertsImg(lastSearch[0].artistName, lastSearch[0].imageStorage);
+    if (lastSearch.noResults) {
+      noResults(lastSearch.artistName);
+    } else if (lastSearch.isEmpty) {
+      noConcerts(lastSearch.imageStorage, lastSearch.artistName);
+    } else {
+      lastSearch.forEach(function (s) {
+        successConcerts(s.venueStorage, s.dateStorage, s.cityStorage);
+      });
+      successConcertsImg(lastSearch[0].artistName, lastSearch[0].imageStorage);
+    }
   }
 }
 
