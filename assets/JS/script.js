@@ -155,6 +155,6 @@ function searchArtist(event) {
   }
   getConcerts(input, actualInput);
 }
-getStorage();
 
 button.addEventListener("click", searchArtist);
+getStorage();
