@@ -30,9 +30,7 @@ function searchArtist() {
       })
       .then(function (resp) {
         artistID = resp.artists.items[0].id;
-        console.log(artistID);
-      });
+      })
+      .then();
   });
 }
-
-searchArtist();
