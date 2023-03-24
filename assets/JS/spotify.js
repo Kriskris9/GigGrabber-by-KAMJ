@@ -54,7 +54,7 @@ function topTracks(input) {
           .then(function (resp) {
             var songStorage = [];
 
-            for (let i = 0; i < 6; i++) {
+            for (let i = 0; i < 5; i++) {
               var spotifySong = resp.tracks[i].name;
               var spotifyLink = resp.tracks[i].external_urls.spotify;
 
