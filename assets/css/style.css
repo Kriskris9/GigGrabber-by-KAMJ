@@ -205,10 +205,11 @@ h2 {
 
   .homepage {
     flex-wrap: wrap;
+    justify-content: left;
   }
 
   nav {
-    height: 15vh;
+    height: 16vh;
     display: block;
   }
 
