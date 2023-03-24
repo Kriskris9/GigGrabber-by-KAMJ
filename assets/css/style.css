@@ -54,6 +54,16 @@ nav {
   box-shadow: 12px 12px 2px 1px #1DB954;
 }
 
+.box > h2 {
+  padding: 0;
+  margin-top: 0;
+}
+
+.spotifyLogo {
+  height: 2rem;
+  padding-top: 0.2rem;
+}
+
 .spotify-box > a {
   font-size: 1.2rem;
   padding-bottom: 1rem;
