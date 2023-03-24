@@ -191,6 +191,27 @@ h2 {
   font-size: 1.5rem;
 }
 
+footer {
+display: block;
+z-index: 2;
+height: 30vh;
+width: 100%;
+border-top: 1.5px solid var(--blck);
+background: linear-gradient(90deg, var(--purp) 0%, var(--blck) 100%);
+margin-top: 2rem;
+text-align: center;
+}
+
+h3 {
+font-size: 1.3rem;
+}
+
+.foot {
+  font-size: 1rem;
+  margin-left: 25vw;
+  margin-right: 25vw;
+}
+
 @media (max-width: 600px) {
   .results-bandsintown {
     width: 100%;
@@ -215,6 +236,10 @@ h2 {
 
   form {
     padding-left: 10vw;
+  }
+
+  h2 {
+    padding-top: 2vh;
   }
 }
 
