@@ -44,8 +44,29 @@ aside {
   border: 1px solid black;
   border-radius: 0.5rem;
   height: 20rem;
-  width: 400px;
+  width: 30vh;
   margin-top: 12.5rem;
+  background-color: var(--blck);
+  color: white;
+  font-size: 2rem;
+  padding-left: 1rem;
+  font-weight: bold;
+  box-shadow: 12px 12px 2px 1px #1DB954;
+}
+
+.spotify-box > a {
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+  color: white;
+  padding-left: 1rem;
+}
+
+.request {
+  font-size: 1.5rem;
+}
+
+.request > a {
+  color: var(--purp);
 }
 
 .results-bandsintown {
@@ -117,20 +138,6 @@ h1 {
   color: var(--blck);
 }
 
-/* .navbar {
-  list-style-type: none;
-}
-
-.navitem {
-  display: inline-block;
-  padding-right: 3rem;
-}
-
-a {
-  text-decoration: none;
-  color: var(--purp);
-} */
-
 .search-container {
   padding-right: 1rem;
 }
@@ -199,6 +206,7 @@ img.profpic {
   justify-content: space-between;
   padding-right: 0.5rem;
 }
+
 .top-artist-name {
   cursor: pointer;
 }
@@ -252,7 +260,7 @@ font-size: 1.5rem;
   }
 
   nav {
-    height: 16vh;
+    height: 15vh;
     display: block;
   }
 
@@ -261,7 +269,12 @@ font-size: 1.5rem;
   }
 
   h2 {
+    margin-top: 6vh;
     padding-top: 2vh;
+  }
+
+  .header-bandsintown > img {
+    margin-top: 6vh;
   }
 
   footer {
@@ -285,51 +298,10 @@ font-size: 1.5rem;
   .card {
     font-size: 1rem;
   }
-  .dropbtn {
-    background-color: #4caf50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
+}
 
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+@media (max-width: 1125px) {
+  .spotify-box > a {
+    font-size: 1rem;
   }
 }
