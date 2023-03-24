@@ -9,7 +9,7 @@
 body {
   margin: 0;
   width: 100%;
-  font-family: copperplate, Helvetica, fantasy;
+  font-family: copperplate, Times, fantasy;
   background: linear-gradient(90deg, var(--pnk) 0%, var(--purp) 100%);
 }
 
@@ -118,6 +118,20 @@ h1 {
   color: var(--blck);
 }
 
+/* .navbar {
+  list-style-type: none;
+}
+
+.navitem {
+  display: inline-block;
+  padding-right: 3rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--purp);
+} */
+
 .search-container {
   padding-right: 1rem;
 }
@@ -167,13 +181,13 @@ img.profpic {
   height: 10vh;
 }
 
-ul {
+.art-name {
   display: flex;
   flex-direction: column;
   list-style: none;
 }
 
-li {
+.toplist {
   display: flex;
   border: 1px solid var(--blck);
   margin-top: 1rem;
@@ -209,11 +223,11 @@ text-align: center;
 }
 
 h3 {
-font-size: 1.3rem;
+font-size: 1.5rem;
 }
 
 .foot {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-left: 25vw;
   margin-right: 25vw;
 }
@@ -260,8 +274,8 @@ font-size: 1.3rem;
   .results-bandsintown {
     width: 100%;
   }
-  li {
-    width: 30vw;
+  .toplist {
+    width: 31vw;
     font-size: 1rem;
     text-align: right;
   }
