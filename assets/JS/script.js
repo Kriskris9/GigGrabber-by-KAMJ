@@ -88,6 +88,7 @@ function getConcerts(input) {
         getArtist(input).then(function (artistData) {
           var artistImg = artistData[0];
           var artistName = artistData[1];
+
           if (Object.keys(data).length === 0) {
             noConcerts(artistImg, artistName);
             concertInfo = {
@@ -130,7 +131,7 @@ function getConcerts(input) {
     });
 }
 
-function getStorage(event) {
+function getStorage() {
   lastSearch = JSON.parse(localStorage.getItem("concertInfo"));
 
   if (lastSearch.noResults) {

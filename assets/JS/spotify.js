@@ -29,7 +29,8 @@ function searchArtist() {
         return response.json();
       })
       .then(function (resp) {
-        console.log(resp.artists.items[0].id);
+        artistID = resp.artists.items[0].id;
+        console.log(artistID);
       });
   });
 }
