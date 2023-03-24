@@ -5,6 +5,7 @@ var topArtist = document.querySelector("#top-artist");
 var head = document.querySelector(".header-bandsintown");
 var aside = document.querySelector("aside");
 var spot = document.querySelector(".box");
+var art = document.querySelectorAll(".top-artist-name");
 var id = window.env.BIT_KEY;
 var input;
 var actualInput;
@@ -101,7 +102,9 @@ function getConcerts(input) {
             var concertInfo = [];
             data.forEach(function (c) {
               var venue = c.venue.name;
-              var date = c.datetime;
+              var d = c.datetime;
+              d1 = d.split("T");
+              date = d1[0];
               var location = `${c.venue.city}, ${c.venue.region}`;
 
               obj = {
@@ -155,6 +158,13 @@ function searchArtist(event) {
   }
   getConcerts(input, actualInput);
 }
-getStorage();
 
 button.addEventListener("click", searchArtist);
+
+art.forEach(function (e) {
+  e.addEventListener("click", function () {
+    getConcerts(e.textContent, e.textContent);
+  });
+});
+
+getStorage();
