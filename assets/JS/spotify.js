@@ -86,36 +86,25 @@ function getStorage() {
     spot.style.display = "none";
   } else {
     lastSearch.forEach(function (s) {
-      var songName = document.createElement("a");
       storage(s.song, s.link);
+      spot.style.display = "block";
     });
   }
 }
 
 function searchArtist(event) {
   event.preventDefault();
-  mediaQ(x);
-
   topTracks(search.value);
+  spot.style.display = "block";
 }
 
 button.addEventListener("click", searchArtist);
 
 art.forEach(function (e) {
   e.addEventListener("click", function () {
-    mediaQ(x);
     topTracks(e.textContent);
+    spot.style.display = "block";
   });
 });
 
 getStorage();
-
-function mediaQ(x) {
-  if (x.matches) {
-    spot.style.display = "none";
-  } else {
-    spot.style.display = "block";
-  }
-}
-var x = window.matchMedia("(max-width: 800px)");
-x.addListener(mediaQ);
