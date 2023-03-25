@@ -105,7 +105,7 @@ function getConcerts(input) {
               var d = c.datetime;
               d1 = d.split("T");
               date = d1[0];
-              var location = `${c.venue.city}, ${c.venue.region}`;
+              var location = `${c.venue.city} ${c.venue.region}`;
 
               obj = {
                 artistName: artistName,
