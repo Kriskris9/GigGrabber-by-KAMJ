@@ -39,7 +39,6 @@ aside {
   align-content: center;
   position: fixed;
   right: 4vw;
-  /* display: none; */
 }
 
 .box {
@@ -58,6 +57,13 @@ aside {
 }
 .box > h2 {
   text-align: start;
+  height: 2rem;
+  padding-top: 0.2rem;
+}
+
+.spotifyLogo {
+  height: 2rem;
+  padding-top: 0.2rem;
 }
 
 .spotify-box > a {
