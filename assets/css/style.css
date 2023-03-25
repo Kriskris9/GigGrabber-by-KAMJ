@@ -32,7 +32,7 @@ nav {
   flex-direction: row;
 }
 
-aside {
+.spotify {
   display: flex;
   flex-direction: column;
   width: 15%;
@@ -59,6 +59,16 @@ aside {
   text-align: start;
   height: 2rem;
   padding-top: 0.2rem;
+}
+
+.spotifyLogo {
+  height: 2rem;
+  padding-top: 0.2rem;
+}
+
+.box > h2 {
+  padding: 0;
+  margin-top: 0;
 }
 
 .spotifyLogo {
@@ -297,11 +307,26 @@ h3 {
 }
 
 @media (max-width: 800px) {
-  aside {
-    display: none;
+  nav {
+    height: 15vh;
   }
+  .spotify {
+    position: absolute;
+    width: 100%;
+  }
+
+  .box {
+    margin-top: 20vh;
+  }
+
+  .box > h2 {
+    padding: 1rem;
+    margin-top: 0;
+  }
+
   .results-bandsintown {
     width: 100%;
+    margin-top: 60vh;
   }
   .toplist {
     width: 100%;
