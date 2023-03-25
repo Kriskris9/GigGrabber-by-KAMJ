@@ -312,7 +312,8 @@ h3 {
   }
   .spotify {
     position: absolute;
-    width: 100%;
+    width: 50%;
+    left: 10vw;
   }
 
   .box {
