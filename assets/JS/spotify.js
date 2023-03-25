@@ -1,6 +1,7 @@
 var button = document.querySelector("button");
 var box = document.querySelector(".spotify-box");
 var search = document.querySelector(".input");
+var spot = document.querySelector(".spotify");
 
 function getToken() {
   var client_id = window.env.SPOTIFY_CLIENT;
@@ -81,16 +82,19 @@ function storage(song, link) {
 
 function getStorage() {
   lastSearch = JSON.parse(localStorage.getItem("songInfo"));
-  console.log(lastSearch);
-
-  lastSearch.forEach(function (s) {
-    var songName = document.createElement("a");
-    storage(s.song, s.link);
-  });
+  if (lastSearch === null) {
+    spot.style.display = "none";
+  } else {
+    lastSearch.forEach(function (s) {
+      var songName = document.createElement("a");
+      storage(s.song, s.link);
+    });
+  }
 }
 
 function searchArtist(event) {
   event.preventDefault();
+  mediaQ(x);
 
   topTracks(search.value);
 }
@@ -99,8 +103,19 @@ button.addEventListener("click", searchArtist);
 
 art.forEach(function (e) {
   e.addEventListener("click", function () {
+    mediaQ(x);
     topTracks(e.textContent);
   });
 });
 
 getStorage();
+
+function mediaQ(x) {
+  if (x.matches) {
+    spot.style.display = "none";
+  } else {
+    spot.style.display = "block";
+  }
+}
+var x = window.matchMedia("(max-width: 800px)");
+x.addListener(mediaQ);

@@ -34,8 +34,9 @@ nav {
 
 .spotify {
   display: flex;
+  flex-direction: column;
   width: 15%;
-  justify-content: center;
+  align-content: center;
   position: fixed;
   right: 4vw;
 }
@@ -43,15 +44,26 @@ nav {
 .box {
   border: 1px solid black;
   border-radius: 0.5rem;
-  height: 20rem;
-  width: 30vh;
+  height: 100%;
+  width: 100%;
   margin-top: 12.5rem;
   background-color: var(--blck);
   color: white;
   font-size: 2rem;
   padding-left: 1rem;
   font-weight: bold;
-  box-shadow: 12px 12px 2px 1px #1DB954;
+  box-shadow: 12px 12px 2px 1px #1db954;
+  display: grid;
+}
+.box > h2 {
+  text-align: start;
+  height: 2rem;
+  padding-top: 0.2rem;
+}
+
+.spotifyLogo {
+  height: 2rem;
+  padding-top: 0.2rem;
 }
 
 .box > h2 {
@@ -65,18 +77,20 @@ nav {
 }
 
 .spotify-box > a {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-bottom: 1rem;
+  text-align: left;
   color: white;
-  padding-left: 1rem;
+  padding-left: 0.1rem;
 }
 
 .request {
-  font-size: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .request > a {
-  color: var(--purp);
+  color: white;
 }
 
 .results-bandsintown {
@@ -182,6 +196,7 @@ form {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  /* margin-top: 10rem; */
 }
 
 .topartists {
@@ -206,7 +221,6 @@ img.profpic {
 .toplist {
   display: flex;
   border: 1px solid var(--blck);
-  margin-top: 1rem;
   height: 10vh;
   width: 25vw;
   background-color: var(--blck);
@@ -226,14 +240,14 @@ h2 {
 }
 
 footer {
-display: block;
-z-index: 2;
-height: 30vh;
-width: 100%;
-border-top: 1.5px solid var(--blck);
-background: linear-gradient(90deg, var(--purp) 0%, var(--blck) 100%);
-margin-top: 2rem;
-text-align: center;
+  display: block;
+  z-index: 2;
+  height: 30vh;
+  width: 100%;
+  border-top: 1.5px solid var(--blck);
+  background: linear-gradient(90deg, var(--purp) 0%, var(--blck) 100%);
+  margin-top: 2rem;
+  text-align: center;
 }
 
 .footer-logo {
@@ -243,7 +257,7 @@ text-align: center;
 }
 
 h3 {
-font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .foot {
@@ -315,7 +329,7 @@ font-size: 1.5rem;
     margin-top: 60vh;
   }
   .toplist {
-    width: 31vw;
+    width: 100%;
     font-size: 1rem;
     text-align: right;
   }

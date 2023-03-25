@@ -1,152 +1,158 @@
 <!DOCTYPE html>
 <html>
-    
-<head>
-  <title>GigGrabber</title>
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
+  <head>
+    <title>GigGrabber</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<body>
-  <nav>
-    <div class="nav-left">
-      <img class="icon" src="./assets/img/live-music.png" alt="" />
-      <h1 href="#">GigGrabber</h1>
-    </div>
-
-    <div class="search-container">
-      <form>
-        <input class="input" type="text" placeholder="Search an artist..." />
-        <button class="btn" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-
-  <section class="page">
-    <div class="results-bandsintown">
-      <div class="header-bandsintown"></div>
-      <div class="card-container"></div>
-    </div>
-    <aside class="spotify">
-      <div class="box">
-        <img src="./assets/img/Spotify_Logo_RGB_Green.png" class="spotifyLogo"/>
-        <h2 class="toptracks">Top Tracks</h2>
-        <p class="request">
-          <!-- Please visit this <a href="https://cors-anywhere.herokuapp.com">link</a> and request access to get Top Tracks. -->
-        </p>
-        <div class="spotify-box"></div>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <img class="icon" src="./assets/img/live-music.png" alt="" />
+        <h1 href="#">GigGrabber</h1>
       </div>
-    </aside>
-  </section>
 
-  <div class="homepage" id="home-page">
-    <div class="topartists">
-      <h2>Top 10 Streaming Artists</h2>
-      <ul class="art-name">
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/drake.jpg" />
-          <span class="top-artist-name">Drake</span>
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/badbun.jpg" />
-          <span class="top-artist-name">Bad Bunny</span>
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/tayswf.jpg" />
-          <span class="top-artist-name">Taylor Swift</span>
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/edshee.jpg" />
-          <span class="top-artist-name">Ed Sheeran</span>
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/weeknd.jpg" />
-          <span class="top-artist-name">The Weekend</span>
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/jb.jpg" />
-          <span class="top-artist-name">Justin Beiber</span>
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/arigran.jpg" />
-          <span class="top-artist-name">Ariana Grande</span>
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/mm.jpg" />
-          <span class="top-artist-name">Eminem</span>
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/bts.jpg" />
-          <span class="top-artist-name">BTS</span>
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/posty.jpg" />
-          <span class="top-artist-name">Post Malone</span>
-        </li>
-      </ul>
-    </div>
+      <div class="search-container">
+        <form>
+          <input class="input" type="text" placeholder="Search an artist..." />
+          <button class="btn" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <section class="page">
+      <div class="results-bandsintown">
+        <div class="header-bandsintown"></div>
+        <div class="card-container"></div>
+      </div>
+      <aside class="spotify">
+        <div class="box">
+          <img
+            src="./assets/img/Spotify_Logo_RGB_Green.png"
+            class="spotifyLogo"
+          />
+          <h2>Top Tracks</h2>
+          <div class="spotify-box"></div>
+        </div>
+        <div class="error">
+          <p class="request">
+            If top tracks is not loading, please visit this
+            <a href="https://cors-anywhere.herokuapp.com/corsdemo">link</a> to
+            request access
+          </p>
+        </div>
+      </aside>
+    </section>
 
-    <div class="topsongs">
-      <h2>Top 10 Streaming Songs</h2>
-      <ul class="song-name">
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/blind.jpg" />
-          Blinding Lights
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/shape.jpg" />
-          Shape of You
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/monkey.jpg" />
-          Dance Monkey
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/someone.jpg" />
-          Someone You Loved
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/rockstar.jpg" />
-          Rockstar
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/sunflower.jpg" />
-          Sunflower
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/onedance.jpg" />
-          One Dance
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/closer.jpg" />
-          Closer
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/stay.jpg" />
-          STAY (with JB)
-        </li>
-        <li class="toplist">
-          <img class="profpic" src="./assets/img/believer.jpg" />
-          Believer
-        </li>
-      </ul>
-    </div>
-  </div>
-  <footer id="about">
-    <div class="footer-logo">
-      <img class="icon" src="./assets/img/live-music.png" alt="" />
-      <h3>About Us</h3>
-    </div>
-    <p class="foot">
-      Connecting artists with their most passionate fans. We're a dynamic live music discovery platform looking to forge
-      a strong musical community!
-    </p>
-    <span>&copy; KAMJ Website Productions</span>
-  </footer>
-  <script src="./assets/JS/env.js"></script>
-  <script src="./assets/JS/script.js"></script>
-  <script src="./assets/JS/spotify.js"></script>
-  <script src="https://kit.fontawesome.com/3c42d1678b.js" crossorigin="anonymous"></script>
-</body>
+    <div class="homepage" id="home-page">
+      <div class="topartists">
+        <h2>Top 10 Streaming Artists</h2>
+        <ul class="art-name">
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/drake.jpg" />
+            <span class="top-artist-name">Drake</span>
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/badbun.jpg" />
+            <span class="top-artist-name">Bad Bunny</span>
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/tayswf.jpg" />
+            <span class="top-artist-name">Taylor Swift</span>
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/edshee.jpg" />
+            <span class="top-artist-name">Ed Sheeran</span>
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/weeknd.jpg" />
+            <span class="top-artist-name">The Weekend</span>
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/jb.jpg" />
+            <span class="top-artist-name">Justin Beiber</span>
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/arigran.jpg" />
+            <span class="top-artist-name">Ariana Grande</span>
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/mm.jpg" />
+            <span class="top-artist-name">Eminem</span>
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/bts.jpg" />
+            <span class="top-artist-name">BTS</span>
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/posty.jpg" />
+            <span class="top-artist-name">Post Malone</span>
+          </li>
+        </ul>
+      </div>
 
+      <div class="topsongs">
+        <h2>Top 10 Streaming Songs</h2>
+        <ul class="song-name">
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/blind.jpg" />
+            Blinding Lights
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/shape.jpg" />
+            Shape of You
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/monkey.jpg" />
+            Dance Monkey
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/someone.jpg" />
+            Someone You Loved
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/rockstar.jpg" />
+            Rockstar
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/sunflower.jpg" />
+            Sunflower
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/onedance.jpg" />
+            One Dance
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/closer.jpg" />
+            Closer
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/stay.jpg" />
+            STAY (with JB)
+          </li>
+          <li class="toplist">
+            <img class="profpic" src="./assets/img/believer.jpg" />
+            Believer
+          </li>
+        </ul>
+      </div>
+    </div>
+    <footer id="about">
+      <div class="footer-logo">
+        <img class="icon" src="./assets/img/live-music.png" alt="" />
+        <h3>About Us</h3>
+      </div>
+      <p class="foot">
+        Connecting artists with their most passionate fans. We're a dynamic live
+        music discovery platform looking to forge a strong musical community!
+      </p>
+      <span>&copy; KAMJ Website Productions</span>
+    </footer>
+    <script src="./assets/JS/env.js"></script>
+    <script src="./assets/JS/script.js"></script>
+    <script src="./assets/JS/spotify.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3c42d1678b.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
-
