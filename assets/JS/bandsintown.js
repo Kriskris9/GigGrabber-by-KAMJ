@@ -1,4 +1,4 @@
-// bandwintown API
+// bandsintown API
 
 var search = document.querySelector(".input");
 var button = document.querySelector("#search");
@@ -139,7 +139,7 @@ function getConcerts(input) {
     });
 }
 
-// this function gets local storage and appends to page//
+// this function gets local storage and appends to the page/
 function getStorage() {
   lastSearch = JSON.parse(localStorage.getItem("concertInfo"));
   if (lastSearch === null) {
