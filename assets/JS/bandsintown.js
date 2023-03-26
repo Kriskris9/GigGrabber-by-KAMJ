@@ -1,5 +1,8 @@
+// bandsintown API
+
 var search = document.querySelector(".input");
-var button = document.querySelector("button");
+var button = document.querySelector("#search");
+var clear = document.querySelector("#clear");
 var bitResults = document.querySelector(".card-container");
 var topArtist = document.querySelector("#top-artist");
 var head = document.querySelector(".header-bandsintown");
@@ -10,12 +13,14 @@ var id = window.env.BIT_KEY;
 var input;
 var actualInput;
 
+// function for appending elements to page when there is a 404 error
 function noResults(name) {
   var noResults = document.createElement("h2");
   noResults.innerHTML = "No Results Found " + name;
   head.append(noResults);
 }
 
+// function for appending elements to page for artist who have no upcoming concerts
 function noConcerts(artistImg, artistName) {
   var empty = document.createElement("h2");
   empty.innerHTML = "No upcoming concerts for " + artistName;
@@ -30,6 +35,7 @@ function noConcerts(artistImg, artistName) {
   head.append(profilePic);
 }
 
+// function for appending elements to page for artist with upcoming concerts
 function successConcerts(venue, date, location) {
   var card = document.createElement("div");
   card.className = "card";
@@ -46,7 +52,7 @@ function successConcerts(venue, date, location) {
   card.append(infoCity);
   bitResults.append(card);
 }
-
+// function for appending a profile picture for artist with upcoming concerts
 function successConcertsImg(artistName, artistImg) {
   var showing = document.createElement("h2");
   showing.innerHTML = "Showing concert results for " + artistName;
@@ -60,6 +66,8 @@ function successConcertsImg(artistName, artistImg) {
   head.append(profilePic);
 }
 
+// function that gets artist img and name from the artist endpoint. were are passing the user input as a argument.
+// we are returning a value to access it in the get concerts function.
 function getArtist(input) {
   return fetch(`https://rest.bandsintown.com/artists/${input}/?app_id=${id}`)
     .then(function (response) {
@@ -70,6 +78,11 @@ function getArtist(input) {
     });
 }
 
+// this function uses the concerts endpoint to get upcoming concerts for an inputed artist.
+// if there is an error in the api we call the no results funciton
+// if there are no concerts for an artist we call the no results function.
+// if there are upcoming concerts we call the success concerts function.
+// we are then storing the values we need in a object
 function getConcerts(input) {
   bitResults.innerHTML = "";
   head.innerHTML = "";
@@ -118,22 +131,15 @@ function getConcerts(input) {
               successConcerts(venue, date, location);
             });
             localStorage.setItem("concertInfo", JSON.stringify(concertInfo));
-            var showing = document.createElement("h2");
-            showing.innerHTML = "Showing concert results for " + artistData[1];
-            head.append(showing);
-            profilePic = document.createElement("img");
-            profilePic.src = artistData[0];
-            profilePic.style.borderRadius = "50%";
-            profilePic.style.border = "1px solid black";
-            profilePic.style.width = "50px";
-            profilePic.style.objectFit = "cover";
-            head.append(profilePic);
+
+            successConcertsImg(artistData[1], artistData[0]);
           }
         });
       }
     });
 }
 
+// this function gets local storage and appends to the page/
 function getStorage() {
   lastSearch = JSON.parse(localStorage.getItem("concertInfo"));
   if (lastSearch === null) {
@@ -151,6 +157,7 @@ function getStorage() {
   }
 }
 
+// this function gets the input value and calls the get concert function.
 function searchArtist(event) {
   event.preventDefault();
   actualInput = search.value;
@@ -161,8 +168,15 @@ function searchArtist(event) {
   getConcerts(input, actualInput);
 }
 
+// click event for search artist function
 button.addEventListener("click", searchArtist);
 
+// function to clear local storage to get back to home page
+clear.addEventListener("click", function () {
+  localStorage.clear();
+});
+
+// click event for the top 10 streaming artist
 art.forEach(function (e) {
   e.addEventListener("click", function () {
     getConcerts(e.textContent, e.textContent);
