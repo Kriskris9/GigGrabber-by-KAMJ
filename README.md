@@ -25,5 +25,7 @@ Wireframe/Sketch of the design
 
 ## APIs Used 
 
+For this assigment we used two API's. We used the Bandsintown API so that you can search if an artist has any upcoming events. Then used the Spotify API so that you can listen to an artists top song.  
+
 
 ## Rough Breakdown of Issues
