@@ -1,8 +1,9 @@
-var button = document.querySelector("button");
+var button = document.querySelector("#search");
 var box = document.querySelector(".spotify-box");
 var search = document.querySelector(".input");
 var spot = document.querySelector(".spotify");
 
+// funciton that gets token
 function getToken() {
   var client_id = window.env.SPOTIFY_CLIENT;
   var client_secret = window.env.SPOTIFY_SECRET;
@@ -25,6 +26,7 @@ function getToken() {
     });
 }
 
+// gets token, gets artist id, then gets artist top tracks
 function topTracks(input) {
   box.innerHTML = "";
   getToken().then(function (data) {
@@ -72,6 +74,7 @@ function topTracks(input) {
   });
 }
 
+// function for appending top songs to page
 function storage(song, link) {
   var songName = document.createElement("a");
   songName.setAttribute("href", link);
@@ -80,6 +83,8 @@ function storage(song, link) {
   box.append(songName);
 }
 
+// gets storage and calls storage function to append to page.
+//  if there is no local storage, we wont display the spotify top tracks side bar.
 function getStorage() {
   lastSearch = JSON.parse(localStorage.getItem("songInfo"));
   if (lastSearch === null) {
@@ -92,14 +97,18 @@ function getStorage() {
   }
 }
 
+// calling search artist function with an argument of the input
 function searchArtist(event) {
   event.preventDefault();
-  topTracks(search.value);
+  input = search.value.trim();
+  topTracks(input);
   spot.style.display = "block";
 }
 
+// event listener for the search button calling search artist
 button.addEventListener("click", searchArtist);
 
+// click event for the top 10 streaming artist
 art.forEach(function (e) {
   e.addEventListener("click", function () {
     topTracks(e.textContent);
