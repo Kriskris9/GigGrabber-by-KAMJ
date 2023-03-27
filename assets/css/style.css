@@ -232,7 +232,7 @@ img.profpic {
 }
 
 .top-artist-name {
-  cursor: pointer;
+  cursor: grab;
 }
 
 h2 {
