@@ -23,7 +23,6 @@ Wireframe/Sketch of the design
 
 ## Installation
 
-## Wireframe of the Design
 
 
 ## APIs Used 
@@ -46,3 +45,9 @@ Once you enter the website, input an artists name on the top right of the screen
 ![alt](/assets/Screenshots/7.png)
 ![alt](./assets/Screenshots/8.png)
 ![alt](/assets/Screenshots/9.png)
+
+## License
+
+Please refer to the License in repo.
+
+## Deployment
