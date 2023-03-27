@@ -187,7 +187,7 @@ form {
 }
 
 .btn:hover {
-  cursor: pointer;
+  cursor: grab;
   box-shadow: 0 0.04rem 1.4rem 0 var(--prpnk);
   transition: transform 150ms;
 }
@@ -232,7 +232,7 @@ img.profpic {
 }
 
 .top-artist-name {
-  cursor: pointer;
+  cursor: grab;
 }
 
 h2 {
