@@ -30,7 +30,7 @@ If you would like to listen to an artist's top songs and the top songs are not l
 
 ## APIs Used 
 
-For this assigment, we used two API's. We used the Bandsintown API so that you can search if an artist has any upcoming events. Then used the Spotify API so that you can listen to an artists top song.  
+For this assignment, we used two API's. We used the Bandsintown API so that you can search if an artist has any upcoming events. Then used the Spotify API so that you can listen to an artists top song.  
 
 ## Usage
 
@@ -46,6 +46,9 @@ Once you enter the website, input an artists name on the top right of the screen
 ![alt](./assets/Screenshots/8.png)
 ![alt](/assets/Screenshots/9.png)
 
+## Credits
+
+We would like to thank our instructor Brian for helping us set up the Spotify API. We would also like to thank our TA for providing us with words of encouragement during this stressful time.
 ## License
 
 Please refer to the License in repo.
