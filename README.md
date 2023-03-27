@@ -18,17 +18,19 @@ THEN I am presented with a list of future performances
 THEN I am also presented with the artists’ top song and artist icon
 When I search the artist name
 THEN I can view my previous search history
-Wireframe/Sketch of the design
 
 
 ## Installation
 
+If you would like to listen to an artist's top songs and the top songs are not loading, you will need to request access. To do so, you will need to click on "link". Once you click on "link", you wil be directed to cors-anywhere.herokuapp.com/corsdemo. To unlock access to the demo, click on the button "Request temporary access to the demo server." Click on the back button to go back to GigGrabbers and you will now be able to see the artist's top 5 songs. 
 
+![alt](/assets/Screenshots/back-button.png)
+![alt](/assets/Screenshots/7.png)
+![alt](/assets/Screenshots/Access-button.png)
 
 ## APIs Used 
 
 For this assigment, we used two API's. We used the Bandsintown API so that you can search if an artist has any upcoming events. Then used the Spotify API so that you can listen to an artists top song.  
-
 
 
 
