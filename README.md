@@ -55,4 +55,4 @@ Please refer to the License in repo.
 
 ## Deployment
 
-https://kriskris9.github.io/Project-1/
+https://kriskris9.github.io/GigGrabber-by-KAMJ
